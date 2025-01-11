@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/test/src" modelPluginID="test" modelName="Education"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="22.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>Education.ecore</foreignModel>
+  <genPackages prefix="Education" disposableProviderFactory="true" ecorePackage="Education.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//DayOfWeek">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//DayOfWeek/Monday"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//DayOfWeek/Tuesday"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//DayOfWeek/Wednesday"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//DayOfWeek/Thursday"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//DayOfWeek/Friday"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//MaterialType">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//MaterialType/Document"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//MaterialType/Multimedia"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//Score">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Score/A"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Score/B"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Score/C"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Score/D"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//SemesterOffered">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//SemesterOffered/Winter"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//SemesterOffered/Summer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Status/Active"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Status/Inactive"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Status/Graduated"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Education.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Type/oral"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Type/quiz"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Type/assignment"/>
+      <genEnumLiterals ecoreEnumLiteral="Education.ecore#//Type/written"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="Education.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//NamedElement/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//HighSchool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//HighSchool/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//HighSchool/FoundedYear"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//HighSchool/Departments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//HighSchool/Courses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//HighSchool/Teachers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//HighSchool/Rooms"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Department">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Department/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Department/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Department/FacultyHead"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Student">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Student/YearOfEnrollment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Student/GPA"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Student/Status"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Assessment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Assessment/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Assessment/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Assessment/Weight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Assessment/Comments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Assessment/DueDate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Assessment/Grades"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Course/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Course/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Course/Credits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Education.ecore#//Course/CourseMaterial"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Enrollment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Departments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Lecturer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Assessment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Room"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Education.ecore#//Course/Semester"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//CourseMaterial">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//CourseMaterial/Format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//CourseMaterial/FileSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//CourseMaterial/AccessURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//CourseMaterial/LastUpdate"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//EducationMaterial">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//EducationMaterial/ResourceID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//EducationMaterial/Title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//EducationMaterial/Type"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Enrollment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Enrollment/ID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Enrollment/Students"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Grade">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Grade/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Grade/Score"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Grade/DateAssigned"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Grade/MaxScore"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Grade/Student"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Grade/Assesment"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Room">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Room/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Room/Capacity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Room/ReservedClassroom"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Schedule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Schedule/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Schedule/DayOfWeek"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Schedule/StartTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Schedule/Duration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Education.ecore#//Schedule/Course"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Semester">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Semester/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Semester/Year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Semester/Term"/>
+    </genClasses>
+    <genClasses ecoreClass="Education.ecore#//Teacher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Teacher/Specialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Teacher/Qualification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//Teacher/YearsOfExperience"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Education.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//User/Email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Education.ecore#//User/ID"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

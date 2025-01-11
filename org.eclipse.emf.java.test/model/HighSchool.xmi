@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EMS:HighSchool
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:EMS="http://it.univaq.disim.mde.course./EMS"
+    Name="Liberty High"
+    ID="HSQU3U"
+    FoundedYear="2003">
+  <Departments
+      Name="Alan Turing Department"
+      ID="293823"
+      Description="STEM Department"
+      FacultyHead="John Doe"/>
+  <Courses Name="Mathematics"
+      ID="M23874"
+      Description="Basic math"
+      Credits="6">
+    <CourseMaterial
+        Format="MP4"
+        FileSize="400"
+        AccessURL="bit.ly"/>
+    <Enrollment
+        ID="SN2934">
+      <Students
+          Name="Jenn Doe"
+          Email="jena@outlook.com"
+          ID="JHDS"
+          YearOfEnrollment="3"
+          GPA="4"/>
+    </Enrollment>
+    <Assessment/>
+    <Semester/>
+  </Courses>
+  <Rooms Name="Alan Turing"
+      ID="A23824"
+      Capacity="1000"/>
+</EMS:HighSchool>

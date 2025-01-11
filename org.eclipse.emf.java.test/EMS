@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Education" nsURI="http://it.univaq.disim.mde.course./EMS" nsPrefix="EMS">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HighSchool" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Department" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Student" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assessment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Course" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CourseMaterial"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EducationMaterial"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Enrollment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Grade"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Room" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Schedule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Semester"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Teacher"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="User" abstract="true" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DayOfWeek">
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday"/>
+    <eLiterals name="Wednesday"/>
+    <eLiterals name="Thursday"/>
+    <eLiterals name="Friday"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MaterialType">
+    <eLiterals name="Document"/>
+    <eLiterals name="Multimedia"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Score">
+    <eLiterals name="A"/>
+    <eLiterals name="B"/>
+    <eLiterals name="C"/>
+    <eLiterals name="D"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SemesterOffered">
+    <eLiterals name="Winter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Status"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Type"/>
+</ecore:EPackage>

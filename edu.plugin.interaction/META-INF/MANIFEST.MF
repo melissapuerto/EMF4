@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interaction
+Bundle-SymbolicName: edu.plugin.interaction
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.plugin.interaction.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.java;bundle-version="1.0.0",
+ org.eclipse.emf.java.edit;bundle-version="1.0.0",
+ org.eclipse.emf.java.editor;bundle-version="1.0.0",
+ org.eclipse.emf.java.test;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.change.edit;bundle-version="2.10.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-23
+Automatic-Module-Name: edu.plugin.interaction
+Bundle-ActivationPolicy: lazy
