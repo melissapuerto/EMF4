@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EMS:HighSchool xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EMS="http://it.univaq.disim.mde.course./EMS" xsi:schemaLocation="http://it.univaq.disim.mde.course./EMS Education.ecore" Name="Bachilleres" ID="2" FoundedYear="1998" TotalCapacity="5000">
+  <Departments Name="Science" ID="D001" Description="Focuses on physics, chemistry, and biology" FacultyHead="Dr. Marie Curie"/>
+  <Courses Name="Physics" ID="2" Description="Physics" Credits="3">
+    <Enrollment ID="5">
+      <Students Name="Bob Brown" Email="bobbrown@gmail.com" ID="S002" YearOfEnrollment="2024" GPA="3.2"/>
+    </Enrollment>
+    <Semester ID="5" Year="2024"/>
+  </Courses>
+  <Teachers Name="Ediopolo" Email="edipolo@modelmail.com" ID="2" Specialization="Physics" Qualification="MSC" YearsOfExperience="15"/>
+  <Rooms Name="Room 2" ID="2" Capacity="40"/>
+</EMS:HighSchool>

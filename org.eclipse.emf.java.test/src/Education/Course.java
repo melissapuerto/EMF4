@@ -2,6 +2,9 @@
  */
 package Education;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -26,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see Education.EducationPackage#getCourse()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidCredits'"
  * @generated
  */
 public interface Course extends NamedElement {
@@ -37,7 +40,7 @@ public interface Course extends NamedElement {
 	 * @return the value of the '<em>ID</em>' attribute.
 	 * @see #setID(String)
 	 * @see Education.EducationPackage#getCourse_ID()
-	 * @model ordered="false"
+	 * @model
 	 * @generated
 	 */
 	String getID();
@@ -81,7 +84,7 @@ public interface Course extends NamedElement {
 	 * @return the value of the '<em>Credits</em>' attribute.
 	 * @see #setCredits(int)
 	 * @see Education.EducationPackage#getCourse_Credits()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getCredits();
@@ -143,22 +146,22 @@ public interface Course extends NamedElement {
 	void setDepartments(Department value);
 
 	/**
-	 * Returns the value of the '<em><b>Lecturer</b></em>' reference.
+	 * Returns the value of the '<em><b>Lecturer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lecturer</em>' reference.
+	 * @return the value of the '<em>Lecturer</em>' containment reference.
 	 * @see #setLecturer(Teacher)
 	 * @see Education.EducationPackage#getCourse_Lecturer()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Teacher getLecturer();
 
 	/**
-	 * Sets the value of the '{@link Education.Course#getLecturer <em>Lecturer</em>}' reference.
+	 * Sets the value of the '{@link Education.Course#getLecturer <em>Lecturer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lecturer</em>' reference.
+	 * @param value the new value of the '<em>Lecturer</em>' containment reference.
 	 * @see #getLecturer()
 	 * @generated
 	 */
@@ -177,22 +180,22 @@ public interface Course extends NamedElement {
 	EList<Assessment> getAssessment();
 
 	/**
-	 * Returns the value of the '<em><b>Room</b></em>' reference.
+	 * Returns the value of the '<em><b>Room</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Room</em>' reference.
+	 * @return the value of the '<em>Room</em>' containment reference.
 	 * @see #setRoom(Room)
 	 * @see Education.EducationPackage#getCourse_Room()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Room getRoom();
 
 	/**
-	 * Sets the value of the '{@link Education.Course#getRoom <em>Room</em>}' reference.
+	 * Sets the value of the '{@link Education.Course#getRoom <em>Room</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Room</em>' reference.
+	 * @param value the new value of the '<em>Room</em>' containment reference.
 	 * @see #getRoom()
 	 * @generated
 	 */
@@ -219,5 +222,13 @@ public interface Course extends NamedElement {
 	 * @generated
 	 */
 	void setSemester(Semester value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.Credits &gt;= 1 and self.Credits &lt;= 6'"
+	 * @generated
+	 */
+	boolean ValidCredits(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Course

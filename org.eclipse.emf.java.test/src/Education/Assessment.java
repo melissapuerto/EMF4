@@ -3,7 +3,9 @@
 package Education;
 
 import java.util.Date;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Education.EducationPackage#getAssessment()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidWeight'"
  * @generated
  */
 public interface Assessment extends EObject {
@@ -35,12 +37,12 @@ public interface Assessment extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(int)
+	 * @see #setID(String)
 	 * @see Education.EducationPackage#getAssessment_ID()
 	 * @model
 	 * @generated
 	 */
-	int getID();
+	String getID();
 
 	/**
 	 * Sets the value of the '{@link Education.Assessment#getID <em>ID</em>}' attribute.
@@ -50,7 +52,7 @@ public interface Assessment extends EObject {
 	 * @see #getID()
 	 * @generated
 	 */
-	void setID(int value);
+	void setID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -82,12 +84,12 @@ public interface Assessment extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Weight</em>' attribute.
-	 * @see #setWeight(int)
+	 * @see #setWeight(String)
 	 * @see Education.EducationPackage#getAssessment_Weight()
 	 * @model
 	 * @generated
 	 */
-	int getWeight();
+	String getWeight();
 
 	/**
 	 * Sets the value of the '{@link Education.Assessment#getWeight <em>Weight</em>}' attribute.
@@ -97,11 +99,11 @@ public interface Assessment extends EObject {
 	 * @see #getWeight()
 	 * @generated
 	 */
-	void setWeight(int value);
+	void setWeight(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Comments</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comments</em>' attribute list.
@@ -109,7 +111,7 @@ public interface Assessment extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<Integer> getComments();
+	EList<String> getComments();
 
 	/**
 	 * Returns the value of the '<em><b>Due Date</b></em>' attribute.
@@ -134,15 +136,23 @@ public interface Assessment extends EObject {
 	void setDueDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Grades</b></em>' reference list.
+	 * Returns the value of the '<em><b>Grades</b></em>' containment reference list.
 	 * The list contents are of type {@link Education.Grade}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grades</em>' reference list.
+	 * @return the value of the '<em>Grades</em>' containment reference list.
 	 * @see Education.EducationPackage#getAssessment_Grades()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Grade> getGrades();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.Weight.toInteger() &gt;= 1 and self.Weight.toInteger() &lt;= 100'"
+	 * @generated
+	 */
+	boolean ValidWeight(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Assessment

@@ -3,13 +3,27 @@
 package Education.impl;
 
 import Education.EducationPackage;
+import Education.EducationTables;
 import Education.Teacher;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.ocl.pivot.evaluation.Executor;
+
+import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanOperation;
+
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -181,6 +195,23 @@ public class TeacherImpl extends UserImpl implements Teacher {
 	 * @generated
 	 */
 	@Override
+	public boolean isExperiencedTeacher() {
+		/**
+		 * self.YearsOfExperience > 10
+		 */
+		final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
+		final /*@NonInvalid*/ int YearsOfExperience = this.getYearsOfExperience();
+		final /*@NonInvalid*/ IntegerValue BOXED_YearsOfExperience = ValueUtil.integerValueOf(YearsOfExperience);
+		final /*@NonInvalid*/ boolean gt = OclComparableGreaterThanOperation.INSTANCE.evaluate(executor, BOXED_YearsOfExperience, EducationTables.INT_10).booleanValue();
+		return gt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EducationPackage.TEACHER__SPECIALIZATION:
@@ -251,6 +282,20 @@ public class TeacherImpl extends UserImpl implements Teacher {
 				return yearsOfExperience != YEARS_OF_EXPERIENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case EducationPackage.TEACHER___IS_EXPERIENCED_TEACHER:
+				return isExperiencedTeacher();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

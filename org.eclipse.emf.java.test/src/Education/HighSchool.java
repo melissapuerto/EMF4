@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link Education.HighSchool#getCourses <em>Courses</em>}</li>
  *   <li>{@link Education.HighSchool#getTeachers <em>Teachers</em>}</li>
  *   <li>{@link Education.HighSchool#getRooms <em>Rooms</em>}</li>
+ *   <li>{@link Education.HighSchool#getDepartmentCount <em>Department Count</em>}</li>
+ *   <li>{@link Education.HighSchool#getTotalCapacity <em>Total Capacity</em>}</li>
  * </ul>
  *
  * @see Education.EducationPackage#getHighSchool()
@@ -55,7 +57,7 @@ public interface HighSchool extends NamedElement {
 	 * @return the value of the '<em>Founded Year</em>' attribute.
 	 * @see #setFoundedYear(int)
 	 * @see Education.EducationPackage#getHighSchool_FoundedYear()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getFoundedYear();
@@ -95,13 +97,13 @@ public interface HighSchool extends NamedElement {
 	EList<Course> getCourses();
 
 	/**
-	 * Returns the value of the '<em><b>Teachers</b></em>' reference list.
+	 * Returns the value of the '<em><b>Teachers</b></em>' containment reference list.
 	 * The list contents are of type {@link Education.Teacher}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Teachers</em>' reference list.
+	 * @return the value of the '<em>Teachers</em>' containment reference list.
 	 * @see Education.EducationPackage#getHighSchool_Teachers()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Teacher> getTeachers();
@@ -117,5 +119,49 @@ public interface HighSchool extends NamedElement {
 	 * @generated
 	 */
 	EList<Room> getRooms();
+
+	/**
+	 * Returns the value of the '<em><b>Department Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Department Count</em>' attribute.
+	 * @see #setDepartmentCount(int)
+	 * @see Education.EducationPackage#getHighSchool_DepartmentCount()
+	 * @model required="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getDepartmentCount();
+
+	/**
+	 * Sets the value of the '{@link Education.HighSchool#getDepartmentCount <em>Department Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Department Count</em>' attribute.
+	 * @see #getDepartmentCount()
+	 * @generated
+	 */
+	void setDepartmentCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Total Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Total Capacity</em>' attribute.
+	 * @see #setTotalCapacity(int)
+	 * @see Education.EducationPackage#getHighSchool_TotalCapacity()
+	 * @model
+	 * @generated
+	 */
+	int getTotalCapacity();
+
+	/**
+	 * Sets the value of the '{@link Education.HighSchool#getTotalCapacity <em>Total Capacity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Total Capacity</em>' attribute.
+	 * @see #getTotalCapacity()
+	 * @generated
+	 */
+	void setTotalCapacity(int value);
 
 } // HighSchool

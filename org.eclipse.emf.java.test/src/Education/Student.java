@@ -2,6 +2,9 @@
  */
 package Education;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +21,7 @@ package Education;
  * </ul>
  *
  * @see Education.EducationPackage#getStudent()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidGPA'"
  * @generated
  */
 public interface Student extends User {
@@ -29,7 +32,7 @@ public interface Student extends User {
 	 * @return the value of the '<em>Year Of Enrollment</em>' attribute.
 	 * @see #setYearOfEnrollment(int)
 	 * @see Education.EducationPackage#getStudent_YearOfEnrollment()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getYearOfEnrollment();
@@ -49,12 +52,12 @@ public interface Student extends User {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>GPA</em>' attribute.
-	 * @see #setGPA(int)
+	 * @see #setGPA(float)
 	 * @see Education.EducationPackage#getStudent_GPA()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	int getGPA();
+	float getGPA();
 
 	/**
 	 * Sets the value of the '{@link Education.Student#getGPA <em>GPA</em>}' attribute.
@@ -64,7 +67,7 @@ public interface Student extends User {
 	 * @see #getGPA()
 	 * @generated
 	 */
-	void setGPA(int value);
+	void setGPA(float value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
@@ -90,5 +93,22 @@ public interface Student extends User {
 	 * @generated
 	 */
 	void setStatus(Status value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.GPA &gt; 3.5'"
+	 * @generated
+	 */
+	boolean isEligibleForHonors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.GPA &gt;= 0.0 and self.GPA &lt;= 4.0'"
+	 * @generated
+	 */
+	boolean ValidGPA(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Student

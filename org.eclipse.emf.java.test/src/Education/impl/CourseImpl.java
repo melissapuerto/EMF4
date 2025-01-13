@@ -7,16 +7,21 @@ import Education.Course;
 import Education.CourseMaterial;
 import Education.Department;
 import Education.EducationPackage;
+import Education.EducationTables;
 import Education.Enrollment;
 import Education.Room;
 import Education.Semester;
 import Education.Teacher;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +31,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.ocl.pivot.evaluation.Executor;
+
+import org.eclipse.ocl.pivot.ids.TypeId;
+
+import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanEqualOperation;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,7 +161,7 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	protected Department departments;
 
 	/**
-	 * The cached value of the '{@link #getLecturer() <em>Lecturer</em>}' reference.
+	 * The cached value of the '{@link #getLecturer() <em>Lecturer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLecturer()
@@ -161,7 +181,7 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	protected EList<Assessment> assessment;
 
 	/**
-	 * The cached value of the '{@link #getRoom() <em>Room</em>}' reference.
+	 * The cached value of the '{@link #getRoom() <em>Room</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRoom()
@@ -346,14 +366,6 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 */
 	@Override
 	public Teacher getLecturer() {
-		if (lecturer != null && lecturer.eIsProxy()) {
-			InternalEObject oldLecturer = (InternalEObject)lecturer;
-			lecturer = (Teacher)eResolveProxy(oldLecturer);
-			if (lecturer != oldLecturer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EducationPackage.COURSE__LECTURER, oldLecturer, lecturer));
-			}
-		}
 		return lecturer;
 	}
 
@@ -362,8 +374,14 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Teacher basicGetLecturer() {
-		return lecturer;
+	public NotificationChain basicSetLecturer(Teacher newLecturer, NotificationChain msgs) {
+		Teacher oldLecturer = lecturer;
+		lecturer = newLecturer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__LECTURER, oldLecturer, newLecturer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -373,10 +391,17 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 */
 	@Override
 	public void setLecturer(Teacher newLecturer) {
-		Teacher oldLecturer = lecturer;
-		lecturer = newLecturer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__LECTURER, oldLecturer, lecturer));
+		if (newLecturer != lecturer) {
+			NotificationChain msgs = null;
+			if (lecturer != null)
+				msgs = ((InternalEObject)lecturer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EducationPackage.COURSE__LECTURER, null, msgs);
+			if (newLecturer != null)
+				msgs = ((InternalEObject)newLecturer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EducationPackage.COURSE__LECTURER, null, msgs);
+			msgs = basicSetLecturer(newLecturer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__LECTURER, newLecturer, newLecturer));
 	}
 
 	/**
@@ -399,14 +424,6 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 */
 	@Override
 	public Room getRoom() {
-		if (room != null && room.eIsProxy()) {
-			InternalEObject oldRoom = (InternalEObject)room;
-			room = (Room)eResolveProxy(oldRoom);
-			if (room != oldRoom) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EducationPackage.COURSE__ROOM, oldRoom, room));
-			}
-		}
 		return room;
 	}
 
@@ -415,8 +432,14 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Room basicGetRoom() {
-		return room;
+	public NotificationChain basicSetRoom(Room newRoom, NotificationChain msgs) {
+		Room oldRoom = room;
+		room = newRoom;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__ROOM, oldRoom, newRoom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -426,10 +449,17 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 */
 	@Override
 	public void setRoom(Room newRoom) {
-		Room oldRoom = room;
-		room = newRoom;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__ROOM, oldRoom, room));
+		if (newRoom != room) {
+			NotificationChain msgs = null;
+			if (room != null)
+				msgs = ((InternalEObject)room).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EducationPackage.COURSE__ROOM, null, msgs);
+			if (newRoom != null)
+				msgs = ((InternalEObject)newRoom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EducationPackage.COURSE__ROOM, null, msgs);
+			msgs = basicSetRoom(newRoom, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EducationPackage.COURSE__ROOM, newRoom, newRoom));
 	}
 
 	/**
@@ -483,6 +513,62 @@ public class CourseImpl extends NamedElementImpl implements Course {
 	 * @generated
 	 */
 	@Override
+	public boolean ValidCredits(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Course::ValidCredits";
+		try {
+			/**
+			 *
+			 * inv ValidCredits:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[?] = self.Credits >= 1 and self.Credits <= 6
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, EducationPackage.Literals.COURSE___VALID_CREDITS__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, EducationTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean IF_le;
+			if (le) {
+				IF_le = true;
+			}
+			else {
+				final /*@NonInvalid*/ int Credits_0 = this.getCredits();
+				final /*@NonInvalid*/ IntegerValue BOXED_Credits_0 = ValueUtil.integerValueOf(Credits_0);
+				final /*@NonInvalid*/ boolean ge = OclComparableGreaterThanEqualOperation.INSTANCE.evaluate(executor, BOXED_Credits_0, EducationTables.INT_1).booleanValue();
+				final /*@NonInvalid*/ Boolean result;
+				if (!ge) {
+					result = ValueUtil.FALSE_VALUE;
+				}
+				else {
+					final /*@NonInvalid*/ boolean le_0 = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, BOXED_Credits_0, EducationTables.INT_6).booleanValue();
+					if (!le_0) {
+						result = ValueUtil.FALSE_VALUE;
+					}
+					else {
+						result = ValueUtil.TRUE_VALUE;
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, EducationTables.INT_0).booleanValue();
+				IF_le = logDiagnostic;
+			}
+			return IF_le;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EducationPackage.COURSE__COURSE_MATERIAL:
@@ -491,8 +577,12 @@ public class CourseImpl extends NamedElementImpl implements Course {
 				return ((InternalEList<?>)getEnrollment()).basicRemove(otherEnd, msgs);
 			case EducationPackage.COURSE__DEPARTMENTS:
 				return basicSetDepartments(null, msgs);
+			case EducationPackage.COURSE__LECTURER:
+				return basicSetLecturer(null, msgs);
 			case EducationPackage.COURSE__ASSESSMENT:
 				return ((InternalEList<?>)getAssessment()).basicRemove(otherEnd, msgs);
+			case EducationPackage.COURSE__ROOM:
+				return basicSetRoom(null, msgs);
 			case EducationPackage.COURSE__SEMESTER:
 				return basicSetSemester(null, msgs);
 		}
@@ -520,13 +610,11 @@ public class CourseImpl extends NamedElementImpl implements Course {
 			case EducationPackage.COURSE__DEPARTMENTS:
 				return getDepartments();
 			case EducationPackage.COURSE__LECTURER:
-				if (resolve) return getLecturer();
-				return basicGetLecturer();
+				return getLecturer();
 			case EducationPackage.COURSE__ASSESSMENT:
 				return getAssessment();
 			case EducationPackage.COURSE__ROOM:
-				if (resolve) return getRoom();
-				return basicGetRoom();
+				return getRoom();
 			case EducationPackage.COURSE__SEMESTER:
 				return getSemester();
 		}
@@ -651,6 +739,21 @@ public class CourseImpl extends NamedElementImpl implements Course {
 				return semester != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case EducationPackage.COURSE___VALID_CREDITS__DIAGNOSTICCHAIN_MAP:
+				return ValidCredits((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

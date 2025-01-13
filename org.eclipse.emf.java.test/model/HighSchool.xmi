@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EMS:HighSchool
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:EMS="http://it.univaq.disim.mde.course./EMS"
-    Name="Liberty High"
-    ID="HSQU3U"
-    FoundedYear="2003">
-  <Departments
-      Name="Alan Turing Department"
-      ID="293823"
-      Description="STEM Department"
-      FacultyHead="John Doe"/>
-  <Courses Name="Mathematics"
-      ID="M23874"
-      Description="Basic math"
-      Credits="6">
-    <CourseMaterial
-        Format="MP4"
-        FileSize="400"
-        AccessURL="bit.ly"/>
-    <Enrollment
-        ID="SN2934">
-      <Students
-          Name="Jenn Doe"
-          Email="jena@outlook.com"
-          ID="JHDS"
-          YearOfEnrollment="3"
-          GPA="4"/>
+<EMS:HighSchool xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EMS="http://it.univaq.disim.mde.course./EMS" xsi:schemaLocation="http://it.univaq.disim.mde.course./EMS Education.ecore" Name="Cumbres" ID="1" FoundedYear="2000" TotalCapacity="2000">
+  <Departments Name="Technology" ID="1" Description="Technology" FacultyHead="John Doe"/>
+  <Courses Name="Mathematics" ID="1" Description="Course Description" Credits="4">
+    <Enrollment ID="5">
+      <Students Name="Melissa Puerto" Email="melissap@modelmail.com" ID="2" YearOfEnrollment="2024" GPA="4.0"/>
     </Enrollment>
-    <Assessment/>
-    <Semester/>
+    <Assessment ID="1" Weight="4">
+      <Comments>Assessment 1</Comments>
+    </Assessment>
+    <Semester ID="1" Year="2025"/>
   </Courses>
-  <Rooms Name="Alan Turing"
-      ID="A23824"
-      Capacity="1000"/>
+  <Teachers Name="John Doe" Email="johndoe1@modelmail.com" ID="1" Specialization="Math" Qualification="MSC" YearsOfExperience="10"/>
+  <Rooms Name="Room 1" ID="1" Capacity="10"/>
 </EMS:HighSchool>
